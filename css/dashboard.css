@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 25px;
+}
+
+/* --- INFO SECTION --- */
+
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.info-title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #000;
+}
+
+.info-content {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 19px;
+  color: #000;
+}
+
+/* --- PROFILE --- */
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.profile-title {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.profile-content {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #828282;
+}
+
+.button-container {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-button {
+  width: 95px;
+  height: 38px;
+  color: #828282;
+  background-color: #fff;
+  border-radius: 12px;
+  border: 1px solid #828282;
+}
+
+/* --- LIST --- */
+.list-information-section {
+  height: 440px;
+  margin-top: 28px;
+}
+
+.list-item {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px;
+}
+
+.list-photo {
+  height: 90px;
+}
+
+.item-title {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #bdbdbd;
+}
+
+.item-text {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #333333;
+}
+
+.list-email .item-text,
+.list-password .item-text {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/* --- FOOTER --- */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+}
+
+footer p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 10px;
+  color: #bdbdbd;
+}
+
+.name {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* --- DESKTOP --- */
+
+@media (min-width: 412px) {
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    margin-bottom: 40px;
+  }
+
+  .container {
+    padding: 20px 50px 10px;
+  }
+
+  .container2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-and-list-container {
+    width: 845px;
+    height: 560px;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+  }
+
+  /* --- INFO DESKTOP --- */
+
+  .personal-info {
+    margin-bottom: 40px;
+  }
+
+  .info-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+
+  .info-content {
+    font-size: 18px;
+  }
+
+  /* --- PROFILE DESKTOP --- */
+
+  .profile-container {
+    padding-bottom: 5px;
+  }
+
+  .profile-title {
+    font-size: 24px;
+  }
+
+  .profile-content {
+    font-size: 13px;
+    width: 300px;
+  }
+
+  /* --- LIST DESKTOP --- */
+
+  .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 150px;
+  }
+
+  .list-photo {
+    display: flex;
+    align-items: center;
+    height: 110px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .list-password {
+    border: none;
+  }
+
+  .item-title {
+    width: 80px;
+  }
+
+  .item-text {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  /* --- FOOTER DESKTOP --- */
+
+  footer {
+    width: 845px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+}
