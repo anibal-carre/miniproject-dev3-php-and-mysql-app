@@ -1,20 +1,12 @@
-<?php
-session_start();
-if (!isset($_SESSION["user"])) {
-    header("Location: login.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
     <link rel="icon" href="assets/devchallenges.png">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboarddark.css">
     <title>Dashboard | Authentication App | By David Carreño</title>
 </head>
 
@@ -27,8 +19,7 @@ if (!isset($_SESSION["user"])) {
 
             <nav class="header-menu">
 
-                <a href="logout.php"><img src="assets/user-image.jpg" alt="user-image" width="32px" height="32px"
-                        style="border-radius:8px ;"></a>
+                <img src="assets/user-image.jpg" alt="user-image" width="32px" height="32px" style="border-radius:8px ;">
             </nav>
         </header>
 
@@ -46,16 +37,14 @@ if (!isset($_SESSION["user"])) {
                     </div>
 
                     <div class="button-container">
-                        <a href="editprofile.php"><button class="profile-button"
-                                style="cursor: pointer;">Edit</button></a>
+                        <button class="profile-button">Edit</button>
                     </div>
                 </div>
 
                 <section class="list-information-section">
                     <div class="list-item list-photo">
                         <span class="item-title">PHOTO</span>
-                        <img src="assets/user-image.jpg" alt="user-image" width="72px" height="72px"
-                            style="border-radius: 8px;">
+                        <img src="assets/user-image.jpg" alt="user-image" width="72px" height="72px" style="border-radius: 8px;">
                     </div>
 
 

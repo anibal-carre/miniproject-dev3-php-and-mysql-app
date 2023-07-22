@@ -155,3 +155,21 @@ footer {
   font-weight: 700;
   text-decoration: underline;
 }
+
+.error {
+  width: 360px;
+  padding: 5px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.registered {
+  width: 360px;
+  padding: 5px;
+  color: yellowgreen;
+  border: 1px solid yellowgreen;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
