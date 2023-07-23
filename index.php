@@ -1,48 +1,3 @@
-<?php
-session_start();
-if (isset($_SESSION['user'])) {
-    header("Location: dashboard.php");
-    exit;
-}
-
-if (isset($_POST["submit"])) {
-    $email = $_POST["email"];
-    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
-
-    $host = "localhost";
-    $dbUser = "root";
-    $dbPassword = "";
-    $dbName = "miniproject";
-
-    try {
-        $connect = mysqli_connect($host, $dbUser, $dbPassword, $dbName);
-        if (!$connect) {
-            throw new Exception("Error al conectar con la base de datos.");
-        }
-
-        $sql = "INSERT INTO users (email, password_hash) VALUES (?,?)";
-        $stmt = mysqli_stmt_init($connect);
-        $prepareStmt = mysqli_stmt_prepare($stmt, $sql);
-        if (!$prepareStmt) {
-            throw new Exception("Error al preparar la consulta SQL.");
-        }
-
-        mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-        if (!mysqli_stmt_execute($stmt)) {
-            throw new Exception("Error al ejecutar la consulta SQL.");
-        }
-
-        echo "<span class='registered'>Te has registrado correctamente.</span>";
-        $_SESSION["user"] = "yes";
-        header("Location: dashboard.php");
-        exit;
-    } catch (Exception $e) {
-        echo "<span class='error'>Error: " . $e->getMessage() . "</span>";
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +25,39 @@ if (isset($_POST["submit"])) {
             <div class="content">
                 <p>Master web development by making real-life projects. There are multiple paths for you to choose</p>
             </div>
-            <form class="index-form" method="post" action="index.php">
+            <form class="index-form" method="post" action="">
+                <?php
+
+                require_once "database.php";
+
+                if ($connect->connect_error) {
+                    die("Failed connection:" . $connect->connect_error);
+                }
+
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $email = $_POST["email"];
+                    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
+
+                    $stmt = $connect->prepare("SELECT id FROM users WHERE email = ?");
+                    $stmt->bind_param("s", $email);
+                    $stmt->execute();
+                    $stmt->store_result();
+
+                    if ($stmt->num_rows > 0) {
+                        echo "<span class='error' >email already exists</span>";
+                    } else {
+                        $stmt = $connect->prepare("INSERT INTO users (email, password_hash) VALUES (?, ?)");
+                        $stmt->bind_param("ss", $email, $password);
+
+                        if ($stmt->execute()) {
+                            header("Location: editprofile.php");
+                            exit();
+                        } else {
+                            echo "Failed to register";
+                        }
+                    }
+                }
+                ?>
                 <input type="email" class="email" placeholder="Email" name="email" title="Enter your email" required>
                 <span class="material-symbols-outlined mail" style="color: #828282;">
                     mail

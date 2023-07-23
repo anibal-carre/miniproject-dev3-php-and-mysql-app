@@ -157,7 +157,7 @@ footer {
 }
 
 .error {
-  width: 360px;
+  width: 500px;
   padding: 5px;
   color: red;
   border: 1px solid red;
@@ -166,7 +166,7 @@ footer {
 }
 
 .registered {
-  width: 360px;
+  width: 500px;
   padding: 5px;
   color: yellowgreen;
   border: 1px solid yellowgreen;

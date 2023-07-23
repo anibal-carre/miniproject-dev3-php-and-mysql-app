@@ -148,3 +148,12 @@ footer {
   font-weight: 700;
   text-decoration: underline;
 }
+
+.error {
+  width: 500px;
+  padding: 5px;
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
