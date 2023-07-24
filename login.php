@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
     <link rel="icon" href="assets/devchallenges.png">
     <link rel="stylesheet" href="css/login.css">
     <title>Login | Authentication App | By David Carreño</title>
@@ -62,13 +63,15 @@
                 ?>
 
 
-                <input type="email" class="email" placeholder="Email" name="email"> <span class="material-symbols-outlined mail" style="color: #828282;">
+                <input type="email" class="email" placeholder="Email" name="email"> <span
+                    class="material-symbols-outlined mail" style="color: #828282;">
                     mail
                 </span>
-                <input type="password" class="password" placeholder="Password" name="password"><span class="material-symbols-outlined lock" style="color: #828282;">
+                <input type="password" class="password" placeholder="Password" name="password"><span
+                    class="material-symbols-outlined lock" style="color: #828282;">
                     lock
                 </span>
-                <input type="submit" value="Start coding now" class="button" name="login">
+                <input type="submit" value="Login" class="button" name="login">
             </form>
 
             <div class="social-media">

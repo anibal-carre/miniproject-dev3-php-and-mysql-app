@@ -67,16 +67,40 @@ header {
 }
 
 .list-item {
-  height: 80px;
+  height: 90px;
   display: flex;
   flex-direction: column;
   align-items: start;
-  border: 1px solid black;
+}
+
+.list-item input {
+  width: 320px;
+  height: 45px;
+  border-radius: 12px;
+  border: 1px solid #828282;
+  font-size: 13px;
+  padding-left: 20px;
+}
+
+.list-bio input {
+  height: 65px;
+}
+
+#submit {
+  width: 82px;
+  height: 38px;
+  background-color: #2f80ed;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /* --- PHOTO --- */
 
-.list-photo {
+.list-information-section .list-photo {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -119,7 +143,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 160px;
 }
 
 footer p {
@@ -132,6 +156,10 @@ footer p {
 .name {
   font-weight: 700;
   text-decoration: underline;
+}
+
+.menu-name {
+  display: none;
 }
 
 /* --- DESKTOP --- */
@@ -220,7 +248,6 @@ footer p {
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    border: 1px solid black;
   }
 
   .list-item input {
@@ -279,7 +306,7 @@ footer p {
 
   /* --- PHOTO --- */
 
-  .list-photo {
+  .list-information-section .list-photo {
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -295,7 +322,6 @@ footer p {
     height: 22px;
     position: absolute;
     z-index: 1;
-    margin-left: 25px;
     cursor: pointer;
   }
 
@@ -325,5 +351,19 @@ footer p {
     justify-content: space-between;
     align-items: flex-start;
     margin-top: 20px;
+  }
+
+  .header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-name {
+    display: flex;
+    color: #333333;
+    font-size: 12px;
+    font-weight: 700;
   }
 }

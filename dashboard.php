@@ -37,7 +37,9 @@ $user = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
     <link rel="icon" href="assets/devchallenges.png">
     <link rel="stylesheet" href="css/dashboard.css">
     <title>Dashboard | Authentication App | By David Carreño</title>
@@ -50,14 +52,41 @@ $user = $result->fetch_assoc();
                 <img src="assets/devchallenges.svg" alt="devchangelles-logo">
             </div>
 
-            <nav class="header-menu">
 
-                <?php if (!empty($user["photo"])) { ?>
-                    <a href="logout.php"><img src="<?php echo $user["photo"]; ?>" alt="user-image" width="32px" height="32px" style="border-radius:8px ;"></a>
-                <?php } else { ?>
-                    <a href="logout.php"><img src="assets/user-image.jpg" alt="user-image" width="32px" height="32px" style="border-radius:8px ;"></a>
-                <?php } ?>
+            <nav class="header-menu">
+                <div class="menu-container">
+                    <?php if (!empty($user["photo"])) { ?>
+                    <a href="#"><img id="menu-img" src="<?php echo $user["photo"]; ?>" alt="user-image" width="32px"
+                            height="32px" style="border-radius:8px ;"></a>
+                    <?php } else { ?>
+                    <a href="#"><img id="menu-img" src="assets/user-image.jpg" alt="user-image" width="32px"
+                            height="32px" style="border-radius:8px ;"></a>
+                    <?php } ?>
+
+                    <ul class="options-list" id="options-list">
+                        <li>
+                            <a class="group" href="dashboard.php"><span class="material-symbols-outlined">
+                                    account_circle </span>My
+                                Profile</a>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined"> group </span>Group Chat
+                        </li>
+                        <div class="divider"></div>
+                        <li>
+                            <a class="logout" href="logout.php"><span class="material-symbols-outlined">
+                                    logout
+                                </span>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <span class="menu-name"><?php echo $user["user_name"]; ?></span>
             </nav>
+
+
+
+
         </header>
 
         <div class="personal-info">
@@ -74,7 +103,8 @@ $user = $result->fetch_assoc();
                     </div>
 
                     <div class="button-container">
-                        <a href="editprofile.php"><button class="profile-button" style="cursor: pointer;">Edit</button></a>
+                        <a href="editprofile.php"><button class="profile-button"
+                                style="cursor: pointer;">Edit</button></a>
                     </div>
                 </div>
 
@@ -82,9 +112,11 @@ $user = $result->fetch_assoc();
                     <div class="list-item list-photo">
                         <span class="item-title">PHOTO</span>
                         <?php if (!empty($user["photo"])) { ?>
-                            <img src="<?php echo $user["photo"]; ?>" alt="user-image" width="72px" height="72px" style="border-radius: 8px;">
+                        <img src="<?php echo $user["photo"]; ?>" alt="user-image" width="72px" height="72px"
+                            style="border-radius: 8px;">
                         <?php } else { ?>
-                            <img src="assets/user-image.jpg" alt="user image" width="72px" height="72px" style="border-radius: 8px;" />
+                        <img src="assets/user-image.jpg" alt="user image" width="72px" height="72px"
+                            style="border-radius: 8px;" />
                         <?php } ?>
                     </div>
 
@@ -125,6 +157,7 @@ $user = $result->fetch_assoc();
 
         </div>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>

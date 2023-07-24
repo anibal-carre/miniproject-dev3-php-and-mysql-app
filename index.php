@@ -50,6 +50,8 @@
                         $stmt->bind_param("ss", $email, $password);
 
                         if ($stmt->execute()) {
+                            session_start();
+                            $_SESSION["user_id"] = $stmt->insert_id;
                             header("Location: editprofile.php");
                             exit();
                         } else {

@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,1,0" />
     <link rel="icon" href="assets/devchallenges.png">
+    <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/editprofile.css">
     <title>Dashboard | Authentication App | By David Carreño</title>
 </head>
@@ -78,9 +79,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <nav class="header-menu">
 
-                <a href="logout.php"><img src="assets/user-image.jpg" alt="user-image" width="32px" height="32px"
-                        style="border-radius:8px ;"></a>
-            </nav>
+                <div class="menu-container">
+                    <?php if (!empty($user["photo"])) { ?>
+                    <a href="#"><img id="menu-img" src="<?php echo $user["photo"]; ?>" alt="user-image" width="32px"
+                            height="32px" style="border-radius:8px ;"></a>
+                    <?php } else { ?>
+                    <a href="#"><img id="menu-img" src="assets/user-image.jpg" alt="user-image" width="32px"
+                            height="32px" style="border-radius:8px ;"></a>
+                    <?php } ?>
+
+                    <ul class="options-list" id="options-list">
+                        <li>
+                            <a class="group" href="dashboard.php"><span class="material-symbols-outlined">
+                                    account_circle </span>My
+                                Profile</a>
+                        </li>
+                        <li>
+                            <span class="material-symbols-outlined"> group </span>Group Chat
+                        </li>
+                        <div class="divider"></div>
+                        <li>
+                            <a class="logout" href="logout.php"><span class="material-symbols-outlined">
+                                    logout
+                                </span>Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <span class="menu-name"><?php echo $user["user_name"]; ?></span>
         </header>
 
 
@@ -104,19 +130,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <form class="list-information-section" method="post" action="editprofile.php"
                     enctype="multipart/form-data">
-                    <div class="list-item list-photo">
-                        <span class="material-symbols-outlined camera" style="color: #FFFFFF;">
-                            add_a_photo
-                        </span>
-                        <?php if (!empty($user["photo_path"])) { ?>
-                        <img src="<?php echo $user["photo_path"]; ?>" alt="user-photo"
-                            style="width:72px; height: 72px; border-radius:8px;">
-                        <?php } else { ?>
-                        <img src="assets/user-image.jpg" alt="user image"
-                            style="width:72px; height: 72px; border-radius:8px;">
-                        <?php } ?>
+                    <div class="list-item list-photo" style="display: flex; flex-direction: row; ">
 
-                        <input type="file" name="photo" accept="image/*">
+                        <label for="input-file" class="label-photo" style="position: relative; ">
+                            <span class="material-symbols-outlined camera" style="color: #FFFFFF; top: 20px; ">
+                                add_a_photo
+                            </span>
+                            <?php if (!empty($user["photo"])) { ?>
+                            <img src="<?php echo $user["photo"]; ?>" alt="user-photo"
+                                style="width:72px; height: 72px; border-radius:8px; cursor: pointer; ">
+                            <?php } else { ?>
+                            <img src="assets/user-image.jpg" alt="user image"
+                                style="width:72px; height: 72px; border-radius:8px; cursor: pointer; ">
+                            <?php } ?>
+                        </label>
+
+                        <input type="file" name="photo" accept="image/*" id="input-file" style="display: none;">
                         <span class="photo-text">CHANGE PHOTO</span>
                     </div>
 
@@ -163,6 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </div>
     </div>
+    <script src="scripts/index.js"></script>
 </body>
 
 </html>
